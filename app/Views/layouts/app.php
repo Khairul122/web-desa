@@ -162,7 +162,6 @@ $structureMenuLabel = trim((string) ($pengaturan['menu_structure_label'] ?? ''))
     <div class="nav-overlay" id="navOverlay" hidden></div>
 
     <div class="nav-menu-wrap" id="siteNavMenu">
-      
       <ul class="nav-menu" role="list">
         <li><a class="nav-link <?= is_active('/') ?>" href="<?= base_url() ?>">Beranda</a></li>
         <li class="has-dropdown <?= $isProfilActive ? 'active' : '' ?>">
