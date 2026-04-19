@@ -56,7 +56,7 @@ if ($hourNow < 11) {
                     <strong id="authLiveClock">--:--:--</strong>
                 </div>
                 <div class="auth-live-card">
-                    <small>Tanggal</small>
+                    <small>Tanggal Hari ini</small>
                     <strong><?= htmlspecialchars($todayLabel) ?></strong>
                 </div>
                 <div class="auth-live-card">
