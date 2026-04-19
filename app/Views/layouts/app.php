@@ -162,8 +162,8 @@ $structureMenuLabel = trim((string) ($pengaturan['menu_structure_label'] ?? ''))
     <div class="nav-overlay" id="navOverlay" hidden></div>
 
     <div class="nav-menu-wrap" id="siteNavMenu">
-      <div class="nav-drawer-head" aria-hidden="true">
-        <span>Menu Navigasi</span>
+      <div class="nav-drawer-head">
+        <span class="nav-drawer-title">Navigasi</span>
         <button type="button" class="nav-drawer-close" id="navDrawerClose" aria-label="Tutup">
           <i class="bi bi-x-lg"></i>
         </button>

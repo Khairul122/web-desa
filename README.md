@@ -1,6 +1,6 @@
-# Website Resmi Gampong Munye Pirak
+# Website Resmi Gampong Meunye Pirak
 
-Portal informasi dan layanan administrasi digital Gampong Munye Pirak, Kabupaten Aceh Utara, Provinsi Aceh. Proyek dibangun dengan PHP native berarsitektur MVC, memiliki portal publik dan panel admin.
+Portal informasi dan layanan administrasi digital Gampong Meunye Pirak, Kabupaten Aceh Utara, Provinsi Aceh. Proyek dibangun dengan PHP native berarsitektur MVC, memiliki portal publik dan panel admin, serta mendukung deploy production ke InfinityFree melalui GitHub Actions.
 
 ## Fitur Utama
 
@@ -27,19 +27,20 @@ Portal informasi dan layanan administrasi digital Gampong Munye Pirak, Kabupaten
 - `config/database.php` konfigurasi database (env-aware)
 - `config/secrets.example.php` template secret lokal/production
 - `database/website_desa.sql` skema + data awal
-- `database/seeders/pengaturan_munye_pirak.sql` data pengaturan Munye Pirak
+- `database/seeders/pengaturan_munye_pirak.sql` data pengaturan awal Meunye Pirak
 - `.github/workflows/deploy-infinityfree.yml` workflow deploy
 
 ## Setup Lokal
 
-1. Clone repository ke web root (contoh Laragon: `C:/laragon/www/website_desa`).
+1. Clone repository ke web root (contoh Laragon: `C:/laragon/www/web-desa`).
 2. Buat database baru.
 3. Import `database/website_desa.sql`.
 4. Gunakan salah satu mode konfigurasi:
-   - Mode cepat: salin `config/secrets.example.php` menjadi `config/secrets.php`.
-   - Mode multi-env: gunakan `config/secrets.development.php` dan `config/secrets.production.php`.
+    - Mode cepat: salin `config/secrets.example.php` menjadi `config/secrets.php`.
+    - Mode multi-env: gunakan `config/secrets.development.php` dan `config/secrets.production.php`.
 5. Isi nilai sesuai environment (`APP_ENV`, `BASE_URL`, `DB_*`).
-6. Jalankan aplikasi dari web server lokal.
+6. Untuk mode localhost berbasis subfolder, gunakan URL `http://localhost/web-desa`.
+7. Jalankan aplikasi dari web server lokal.
 
 Contoh `config/secrets.php` lokal:
 
@@ -48,7 +49,7 @@ Contoh `config/secrets.php` lokal:
 
 return [
     'APP_ENV' => 'development',
-    'BASE_URL' => 'http://localhost/website_desa',
+    'BASE_URL' => 'http://localhost/web-desa',
     'LOG_VIEWER_TOKEN' => '',
     'DB_HOST' => 'localhost',
     'DB_HOSTS' => 'localhost',
@@ -82,7 +83,7 @@ Deploy menggunakan GitHub Actions dengan workflow:
 - `APP_DB_HOSTS` (fallback host dipisah koma)
 - `APP_LOG_VIEWER_TOKEN` (disarankan kosong di production)
 
-Workflow akan membuat `config/secrets.php` otomatis saat deploy, lalu upload source code via FTP.
+Workflow akan membuat `config/secrets.php` otomatis saat deploy, lalu upload source code dan folder `uploads/` via FTP.
 
 ## Dua Mode Environment (Development & Production)
 
@@ -100,7 +101,7 @@ Pemilihan file dilakukan otomatis berdasarkan nilai `APP_ENV` runtime:
 Default development yang disiapkan saat ini:
 
 ```php
-'BASE_URL' => 'http://localhost/website_desa',
+'BASE_URL' => 'http://localhost/web-desa',
 'DB_HOST' => 'localhost',
 'DB_NAME' => 'website_desa',
 'DB_USER' => 'root',
@@ -109,14 +110,23 @@ Default development yang disiapkan saat ini:
 
 ## Kebijakan Upload Gambar
 
-- Upload gambar dari panel admin disimpan sebagai data runtime di server (`uploads/*`).
-- Workflow deploy mengecualikan `uploads/**`, jadi file upload user tidak ditimpa saat deploy.
-- Folder uploads harus tetap ada di server:
+- Upload gambar dari panel admin disimpan pada folder `uploads/*`.
+- Workflow deploy saat ini ikut mengirim folder `uploads/` ke InfinityFree, sehingga media lokal ikut tersinkron saat deploy.
+- Folder uploads yang dipakai aplikasi:
   - `uploads/logo`
   - `uploads/artikel`
   - `uploads/carousel`
   - `uploads/galeri`
   - `uploads/editor`
+- Jika Anda mengubah isi media di localhost, file tersebut akan ikut ter-publish pada deploy berikutnya.
+- Jika ada upload baru langsung di server production, pastikan file itu juga dibackup ke lokal agar tidak tertimpa saat deploy selanjutnya.
+
+## Catatan Path Media
+
+- Hero section membaca gambar carousel dari folder `uploads/carousel`.
+- Thumbnail berita membaca gambar dari folder `uploads/artikel`.
+- Galeri membaca gambar dari folder `uploads/galeri`.
+- Logo website dibaca dari `uploads/logo` atau `public/uploads/logo` dengan fallback resolver otomatis.
 
 ## Backup Rekomendasi
 
@@ -136,3 +146,9 @@ Default development yang disiapkan saat ini:
 - `docs/PRODUCTION_CHECKLIST.md`
 - `docs/OPERASIONAL_UPLOAD_DAN_BACKUP.md`
 - `docs/PRODUCTION_ENV_TEMPLATE.md`
+
+## Status Deploy Saat Ini
+
+- Mode runtime production aktif pada entry file aplikasi.
+- Workflow GitHub Actions mengirim source code beserta `uploads/` ke InfinityFree.
+- Target production saat ini: `https://munyepirak.wuaze.com`

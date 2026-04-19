@@ -66,7 +66,13 @@ function initNavbar() {
     setTimeout(() => overlay?.setAttribute('hidden', ''), 450);
   };
 
-  hamburger?.addEventListener('click', openDrawer);
+  hamburger?.addEventListener('click', () => {
+    if (menuWrap?.classList.contains('is-open')) {
+      closeDrawer();
+      return;
+    }
+    openDrawer();
+  });
   closeBtn?.addEventListener('click', closeDrawer);
   overlay?.addEventListener('click', closeDrawer);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
