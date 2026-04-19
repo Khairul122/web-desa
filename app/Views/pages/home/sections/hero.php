@@ -1,8 +1,4 @@
 <section class="hero-section" id="hero" aria-label="Halaman Utama">
-  <div class="hero-live-banner" data-reveal="trail">
-    <span class="hero-live-banner-dot" aria-hidden="true"></span>
-    <span>Pembaruan tampilan situs sedang aktif.</span>
-  </div>
   <div class="hero-slides-wrap" aria-hidden="true">
     <?php if (!empty($heroSlides)): ?>
       <?php foreach ($heroSlides as $idx => $slide): ?>
