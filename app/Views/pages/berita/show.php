@@ -112,7 +112,7 @@ $shareText = urlencode($title);
                 <?php if ($relImg): ?>
                 <img src="<?= htmlspecialchars($relImg) ?>" alt="" class="related-item-img" loading="lazy">
                 <?php endif; ?>
-                <div>
+                <div class="related-item-body">
                   <p class="related-item-title"><?= htmlspecialchars((string)($rel['judul'] ?? '')) ?></p>
                   <div class="related-item-meta">
                     <i class="bi bi-calendar3" style="color:var(--accent)"></i>
