@@ -625,6 +625,64 @@
 
 /* ── Vision-Mission ──────────────────────── */
 .visi-misi-section { background: #F4F7FA; }
+.visi-misi-scene {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin: -0.5rem 0 1.4rem;
+}
+.visi-misi-floating-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 320px;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(27,58,107,0.1);
+  box-shadow: 0 18px 40px rgba(21, 38, 63, 0.08);
+  backdrop-filter: blur(8px);
+}
+.visi-misi-floating-note--left {
+  justify-self: start;
+}
+.visi-misi-floating-note--right {
+  justify-self: end;
+  text-align: right;
+}
+.floating-note-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.visi-misi-floating-note strong {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+.visi-misi-floating-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+.visi-misi-floating-badges span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(27,58,107,0.08), rgba(27,58,107,0.14));
+  border: 1px solid rgba(27,58,107,0.12);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 .visi-misi-wrap {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -647,45 +705,6 @@
   font-size: 12rem;
   color: rgba(255,255,255,0.04);
   line-height: 1;
-}
-.visi-panel-ornament {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.4rem;
-}
-.visi-ornament-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.88);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  backdrop-filter: blur(8px);
-}
-.visi-ornament-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.45rem;
-}
-.visi-ornament-grid span {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.32rem 0.72rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.72);
-  font-size: 0.76rem;
 }
 .panel-label {
   display: inline-flex;
@@ -725,25 +744,6 @@
   background: radial-gradient(circle, rgba(27,58,107,0.09) 0%, rgba(27,58,107,0) 68%);
   pointer-events: none;
 }
-.misi-panel-topline {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-.misi-topline-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.42rem;
-  padding: 0.42rem 0.82rem;
-  border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--primary);
-  font-size: 0.76rem;
-  font-weight: 700;
-}
 .misi-panel .panel-label { color: var(--primary); }
 .misi-list { list-style: none; padding: 0; display: grid; gap: 0.85rem; }
 .misi-item {
@@ -777,21 +777,6 @@
   font-size: 0.92rem;
   line-height: 1.65;
   padding-top: 0.2rem;
-}
-.misi-footnote {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  margin-top: 1.15rem;
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(27,58,107,0.18);
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.7;
-}
-.misi-footnote i {
-  color: var(--primary);
-  margin-top: 0.1rem;
 }
 
 /* ── News Section ────────────────────────── */
