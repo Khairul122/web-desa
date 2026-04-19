@@ -12,8 +12,8 @@
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>
-    <div class="section-intro-text" data-reveal="up" data-reveal-delay="80">
-      <p>Dokumentasi visual yang menampilkan aktivitas warga, suasana gampong, dan berbagai momen penting secara ringkas dan tertata.</p>
+    <div class="section-accent-title" data-reveal="up" data-reveal-delay="80">
+      <span>Galeri Gampong</span>
     </div>
     <div class="gallery-masonry" data-stagger>
       <?php foreach (array_slice($galeriItems, 0, 8) as $gal): ?>

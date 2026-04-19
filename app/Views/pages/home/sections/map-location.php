@@ -7,8 +7,8 @@
       <div class="formal-divider formal-divider--center"></div>
       <p class="section-subtitle mx-auto"><?= htmlspecialchars($mapSectionDescription) ?></p>
     </div>
-    <div class="section-intro-text section-intro-text--center" data-reveal="up" data-reveal-delay="80">
-      <p>Temukan posisi <?= htmlspecialchars($brandName) ?> dengan lebih mudah untuk kunjungan, koordinasi layanan, dan akses informasi wilayah.</p>
+    <div class="section-accent-title section-accent-title--center" data-reveal="up" data-reveal-delay="80">
+      <span>Lokasi Gampong</span>
     </div>
     <div class="map-wrap" data-reveal="up">
       <iframe

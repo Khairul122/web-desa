@@ -20,8 +20,8 @@ $resolveNewsImg = static function($item) use ($resolveMediaUrl): string {
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>
-    <div class="section-intro-text" data-reveal="up" data-reveal-delay="80">
-      <p>Rangkaian informasi terbaru seputar kegiatan, program, dan perkembangan yang sedang berlangsung di <?= htmlspecialchars($brandName) ?>.</p>
+    <div class="section-accent-title" data-reveal="up" data-reveal-delay="80">
+      <span>Berita Gampong</span>
     </div>
 
     <?php if ($featuredNews): ?>
