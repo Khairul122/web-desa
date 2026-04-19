@@ -1,0 +1,14 @@
+nul
+.claude/
+config/secrets.php
+storage/logs/*.log
+testsprite_tests/tmp/
+
+# Runtime uploads (keep folders, ignore generated files)
+uploads/**
+!uploads/.gitkeep
+!uploads/logo/.gitkeep
+!uploads/artikel/.gitkeep
+!uploads/carousel/.gitkeep
+!uploads/galeri/.gitkeep
+!uploads/editor/.gitkeep

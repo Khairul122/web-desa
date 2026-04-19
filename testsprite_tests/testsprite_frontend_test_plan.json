@@ -1,0 +1,784 @@
+[
+  {
+    "id": "TC001",
+    "title": "Admin logout ends the session and blocks dashboard access",
+    "description": "Verifies an authenticated admin can log out, returns to the public site, and then cannot access the admin dashboard afterward.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the username or email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /logout"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /admin/dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user is blocked from the admin dashboard and is prompted to authenticate"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Browse village profile pages from home",
+    "description": "Verifies a visitor can navigate from the home page through the profile overview, vision & mission, and organization structure pages with content displayed.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the profile overview page"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the vision and mission page"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the organization structure page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify organization structure content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Access news listing from the main navigation",
+    "description": "Verifies a visitor can reach the news listing page via normal site navigation and see a list of articles.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the news listing page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a list of news articles is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Access gallery listing from the main navigation",
+    "description": "Verifies a visitor can reach the gallery listing page via normal site navigation and see a list of gallery items.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the gallery listing page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a list of gallery items is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Admin can sign in and reach the dashboard",
+    "description": "Verifies an internal admin can sign in and land on the admin dashboard with protected dashboard content visible.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the username or email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the admin dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify admin dashboard content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Read a news article and return to the listing",
+    "description": "Verifies a visitor can open the news listing, read an article detail page, and navigate back to the listing successfully.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the news listing page"
+      },
+      {
+        "type": "action",
+        "description": "Click a news article from the list to open its detail page"
+      },
+      {
+        "type": "action",
+        "description": "Press Backspace"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the news listing is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "View a gallery item detail with content rendered",
+    "description": "Verifies a visitor can open the gallery listing, select an item, and view the gallery detail page with its content displayed.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the gallery listing page"
+      },
+      {
+        "type": "action",
+        "description": "Click a gallery item from the list to open its detail page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify gallery item details are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify gallery images or media content are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Open profile overview page from home",
+    "description": "Verifies a visitor can navigate to the profile overview page and see village profile information.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the profile overview page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify profile overview content is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC009",
+    "title": "Submit a valid contact message successfully",
+    "description": "Verifies a visitor can submit the contact form with valid required fields and sees a success confirmation.",
+    "category": "Contact Message Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to the contact page"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid name into the name field"
+      },
+      {
+        "type": "action",
+        "description": "Fill a valid email into the email field"
+      },
+      {
+        "type": "action",
+        "description": "Fill a message into the message field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a success confirmation is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC010",
+    "title": "Contact form validation shows errors for missing required fields",
+    "description": "Verifies submitting the contact form with missing required fields shows field-level validation feedback and does not submit successfully.",
+    "category": "Contact Message Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /kontak"
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify field-level validation errors are displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC011",
+    "title": "Login rejects invalid credentials",
+    "description": "Verifies submitting the login form with an incorrect password shows an authentication failure message and does not log the user in.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the username or email field with invalid-user@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with wrong-password"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an authentication failure message is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC012",
+    "title": "Guest cannot open admin news management page",
+    "description": "Verifies a non-authenticated visitor cannot access /admin/berita directly and is redirected to an authentication flow or blocked from admin content.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /admin/berita"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify admin news management content is not visible to guest users"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Guest cannot open admin gallery management page",
+    "description": "Verifies a non-authenticated visitor cannot access /admin/galeri directly and is redirected to login or prevented from viewing admin controls.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /admin/galeri"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify admin gallery management content is not visible to guest users"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Footer navigation links open expected public pages",
+    "description": "Verifies key footer links (Beranda, Profil, Berita, Galeri, Kontak) are present and navigate to their expected pages.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to footer and click the footer link to /berita"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the news page is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate back to / and click the footer link to /galeri"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the gallery page is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate back to / and click the footer link to /kontak"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the contact page is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC015",
+    "title": "Invalid news slug redirects to news listing",
+    "description": "Verifies opening an invalid news detail URL does not crash and redirects visitors back to the news listing page.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /berita/slug-tidak-valid-123"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user is on the /berita listing page"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC016",
+    "title": "Invalid gallery detail URL redirects to gallery listing",
+    "description": "Verifies opening an invalid gallery detail URL redirects visitors to the gallery listing page.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /galeri/id-tidak-valid"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user is on the /galeri listing page"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC017",
+    "title": "Login form shows validation when submitted empty",
+    "description": "Verifies the login form displays validation/error feedback when submitted with empty required fields.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form without filling any field"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation or error feedback is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC018",
+    "title": "Home page WhatsApp contact entry is clickable",
+    "description": "Verifies the floating or visible WhatsApp contact link points to a valid wa.me URL when present on the landing page.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify at least one WhatsApp contact link with wa.me href is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC019",
+    "title": "Guest cannot open admin dashboard route",
+    "description": "Verifies a non-authenticated visitor cannot access the production admin dashboard directly.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify admin dashboard content is not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC020",
+    "title": "Guest cannot open admin carousel management page",
+    "description": "Verifies a non-authenticated visitor cannot access the production carousel management page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/carousel"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify carousel admin controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC021",
+    "title": "Guest cannot open admin statistics management page",
+    "description": "Verifies a non-authenticated visitor cannot access the production statistics management page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/statistik"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify statistics admin controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC022",
+    "title": "Guest cannot open admin contact management page",
+    "description": "Verifies a non-authenticated visitor cannot access the production contact management page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/kontak"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify contact management controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC023",
+    "title": "Guest cannot open admin settings page",
+    "description": "Verifies a non-authenticated visitor cannot access the production settings page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/pengaturan"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify settings form and save controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC024",
+    "title": "Guest cannot open admin profile management page",
+    "description": "Verifies a non-authenticated visitor cannot access the production village profile management page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/profil"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify profile management controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC025",
+    "title": "Guest cannot open admin users management page",
+    "description": "Verifies a non-authenticated visitor cannot access the production user management page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/users"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user management controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC026",
+    "title": "Guest cannot open admin account profile page",
+    "description": "Verifies a non-authenticated visitor cannot access the production account profile page.",
+    "category": "Authentication and Admin Access",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/profile"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify account update controls are not visible to guests"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC027",
+    "title": "Admin berita CRUD form readiness from listing",
+    "description": "Verifies production admin berita module exposes list, create form, and edit affordances required for CRUD workflows.",
+    "category": "Admin CRUD Coverage",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/berita"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify berita listing area is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify there is an action to add publication and at least one edit or delete action"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC028",
+    "title": "Admin galeri CRUD form readiness from listing",
+    "description": "Verifies production admin galeri module exposes list, create form, and edit or delete affordances for CRUD workflows.",
+    "category": "Admin CRUD Coverage",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/galeri"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify galeri management form and media list are visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify edit and delete actions are present for media items"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC029",
+    "title": "Admin carousel CRUD page accessibility",
+    "description": "Verifies production carousel management listing and create route are accessible for CRUD operations.",
+    "category": "Admin CRUD Coverage",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/carousel"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify carousel listing is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/carousel/create"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify carousel create form is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC030",
+    "title": "Admin statistik CRUD page accessibility",
+    "description": "Verifies production statistik management listing and create route are accessible for CRUD operations.",
+    "category": "Admin CRUD Coverage",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/statistik"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify statistik listing is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/statistik/create"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify statistik create form is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC031",
+    "title": "Admin users CRUD page accessibility",
+    "description": "Verifies production users management listing and create route are accessible for CRUD operations.",
+    "category": "Admin CRUD Coverage",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/users"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify users listing is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/users/create"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify users create form is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC032",
+    "title": "Admin kontak management actions visibility",
+    "description": "Verifies production contact management page shows operational actions for status update and deletion flows.",
+    "category": "Admin CRUD Coverage",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/admin/kontak"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify contact entries or empty-state management section is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify there are controls to view detail and perform status or delete actions when data exists"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC033",
+    "title": "Public profile slug page accessibility",
+    "description": "Verifies a profile detail slug page is reachable from the production profile listing.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/profil"
+      },
+      {
+        "type": "action",
+        "description": "Click one profile detail link if available"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify profile detail content is displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC034",
+    "title": "Public navigation access for all primary pages",
+    "description": "Verifies production primary public pages are reachable: home, profile, news, gallery, contact, and login.",
+    "category": "Public Content Browsing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/profil"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/berita"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/galeri"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/kontak"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to https://munyepirak.wuaze.com/login"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify each page loads expected core heading or section"
+      }
+    ],
+    "priority": "Medium"
+  }
+]

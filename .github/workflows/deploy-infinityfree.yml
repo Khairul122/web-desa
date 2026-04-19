@@ -1,0 +1,60 @@
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate production secrets file
+        shell: bash
+        run: |
+          cat > config/secrets.php <<'PHP'
+          <?php
+
+          return [
+              'APP_ENV' => '${{ secrets.APP_ENV || 'production' }}',
+              'BASE_URL' => '${{ secrets.APP_BASE_URL }}',
+              'LOG_VIEWER_TOKEN' => '${{ secrets.APP_LOG_VIEWER_TOKEN }}',
+              'DB_HOST' => '${{ secrets.APP_DB_HOST }}',
+              'DB_HOSTS' => '${{ secrets.APP_DB_HOSTS }}',
+              'DB_NAME' => '${{ secrets.APP_DB_NAME }}',
+              'DB_USER' => '${{ secrets.APP_DB_USER }}',
+              'DB_PASS' => '${{ secrets.APP_DB_PASS }}',
+          ];
+          PHP
+
+      - name: Ensure runtime directories exist
+        shell: bash
+        run: |
+          mkdir -p storage/logs uploads/logo uploads/artikel uploads/carousel uploads/galeri uploads/editor
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.INFINITYFREE_FTP_SERVER }}
+          username: ${{ secrets.INFINITYFREE_FTP_USERNAME }}
+          password: ${{ secrets.INFINITYFREE_FTP_PASSWORD }}
+          protocol: ftp
+          local-dir: ./
+          server-dir: ${{ secrets.INFINITYFREE_FTP_REMOTE_DIR }}
+          exclude: |
+            **/.git/**
+            **/.git*/**
+            **/.github/**
+            **/.claude/**
+            **/node_modules/**
+            **/testsprite_tests/**
+            **/storage/logs/*.log
+            **/config/secrets.development.php
+            **/config/secrets.production.php
+            **/config/secrets.example.php
+            **/uploads/**
