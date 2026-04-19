@@ -106,7 +106,7 @@
   .visi-misi-intro { margin-bottom: 1rem; }
   .visi-misi-intro p { font-size: 0.92rem; }
   .section-accent-title { margin-bottom: 1rem; }
-  .section-accent-title span { font-size: 1.2rem; }
+  .section-accent-title span { font-size: var(--text-3xl); }
 
   /* News */
   .news-featured        { display: block; }
