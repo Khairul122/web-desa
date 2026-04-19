@@ -1,14 +1,14 @@
 <?php
 $featuredNews = $beritaItems[0] ?? null;
 $restNews     = array_slice($beritaItems, 1, 3);
-$resolveNewsImg = static function($item) use ($resolveMediaUrl): string {
+$resolveNewsImg = static function ($item) use (&$resolveMediaUrl): string {
     $thumb = trim((string)($item['thumbnail'] ?? ''));
     return $thumb !== '' ? $resolveMediaUrl($thumb, 'artikel') : '';
 };
 ?>
 <section class="section news-section" id="berita">
   <div class="container">
-    <div class="text-center mb-5" data-reveal="clip">
+    <div class="text-center mb-5">
       <span class="section-label"><i class="bi bi-newspaper"></i> Informasi</span>
       <h2 class="section-title mt-2">Berita Gampong</h2>
       <div class="formal-divider formal-divider--center"></div>

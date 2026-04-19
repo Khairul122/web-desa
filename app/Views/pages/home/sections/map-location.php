@@ -1,6 +1,6 @@
 <section class="section map-section" id="lokasi">
   <div class="container">
-    <div class="text-center mb-5" data-reveal="clip">
+    <div class="text-center mb-5">
       <span class="section-label"><i class="bi bi-pin-map-fill"></i> Lokasi</span>
       <h2 class="section-title mt-2"><?= htmlspecialchars($mapSectionTitle) ?></h2>
       <div class="formal-divider formal-divider--center"></div>

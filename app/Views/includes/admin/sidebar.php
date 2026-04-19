@@ -61,8 +61,9 @@ $menuItems = [
 <aside id="adminSidebar" class="admin-sidebar" aria-label="Sidebar admin">
     <div class="admin-sidebar__brand">
         <a href="<?= base_url('/admin/dashboard') ?>" class="admin-brand-link">
-            <?php if (!empty($logoDesa ?? '')): ?>
-            <span class="admin-brand-logo"><img src="<?= htmlspecialchars(upload_url((string) $logoDesa)) ?>" alt="Logo" width="24" height="24"></span>
+            <?php $logoUrl = !empty($logoDesa ?? '') ? resolve_upload_url((string) $logoDesa) : ''; ?>
+            <?php if ($logoUrl !== ''): ?>
+            <span class="admin-brand-logo"><img src="<?= htmlspecialchars($logoUrl) ?>" alt="Logo" width="24" height="24"></span>
             <?php else: ?>
             <span class="admin-brand-logo"><i class="bi bi-buildings"></i></span>
             <?php endif; ?>

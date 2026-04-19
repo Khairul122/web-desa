@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title ?? 'Panel Admin') ?></title>
     <meta name="description" content="<?= htmlspecialchars((string) ($website_deskripsi ?? 'Panel admin website.')) ?>">
-    <?php $logoUrl = !empty($logoDesa ?? '') ? upload_url((string) $logoDesa) : ''; ?>
+    <?php $logoUrl = !empty($logoDesa ?? '') ? resolve_upload_url((string) $logoDesa) : ''; ?>
     <?php if ($logoUrl !== ''): ?>
     <link rel="shortcut icon" href="<?= htmlspecialchars($logoUrl) ?>" type="image/x-icon">
     <?php endif; ?>

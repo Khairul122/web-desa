@@ -877,12 +877,26 @@
   cursor: pointer;
   display: block;
 }
+.gallery-item--static {
+  min-height: 220px;
+  background: linear-gradient(180deg, #dfe8f2 0%, #cfdbe8 100%);
+  border: 1px solid rgba(27,58,107,0.10);
+}
+.gallery-static-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  color: rgba(27,58,107,0.45);
+  font-size: 3rem;
+}
 .gallery-item img {
   width: 100%;
   display: block;
   transition: transform var(--dur-slow) var(--ease-out);
 }
 .gallery-item:hover img { transform: scale(1.07); }
+.gallery-item--static:hover .gallery-static-media { transform: scale(1.04); }
 .gallery-overlay {
   position: absolute;
   inset: 0;

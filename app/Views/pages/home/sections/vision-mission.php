@@ -1,6 +1,6 @@
 <section class="section visi-misi-section" id="visi-misi">
   <div class="container">
-    <div class="text-center mb-5" data-reveal="clip">
+    <div class="text-center mb-5">
       <span class="section-label"><i class="bi bi-compass"></i> Arah Gampong</span>
       <h2 class="section-title mt-2">Visi &amp; Misi</h2>
       <div class="formal-divider formal-divider--center"></div>

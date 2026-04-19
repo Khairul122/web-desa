@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
     <div class="container">
-        <?php $logoUrl = !empty($logoDesa ?? '') ? upload_url((string) $logoDesa) : ''; ?>
+        <?php $logoUrl = !empty($logoDesa ?? '') ? resolve_upload_url((string) $logoDesa) : ''; ?>
         <?php $profileMenuLabel = trim((string) ($pengaturan['menu_profile_label'] ?? '')) ?: 'Profil'; ?>
         <?php $storyMenuLabel = trim((string) ($pengaturan['menu_story_label'] ?? '')) ?: 'Profil'; ?>
         <?php $visionMenuLabel = trim((string) ($pengaturan['menu_vision_label'] ?? '')) ?: 'Visi & Misi'; ?>

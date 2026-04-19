@@ -43,7 +43,34 @@ function img(string $path, array $attributes = []): string
 
 function upload_url(string $path): string
 {
-    return UPLOADS_PATH . '/' . ltrim($path, '/');
+    $normalized = ltrim(str_replace('\\', '/', $path), '/');
+    return UPLOADS_PATH . '/' . $normalized;
+}
+
+function resolve_upload_url(string $path, string $fallback = ''): string
+{
+    $normalized = ltrim(str_replace('\\', '/', trim($path)), '/');
+    if ($normalized === '') {
+        return $fallback;
+    }
+
+    $root = dirname(__DIR__);
+    $candidates = array_values(array_unique([
+        $root . '/uploads/' . $normalized,
+        $root . '/public/uploads/' . $normalized,
+    ]));
+
+    foreach ($candidates as $candidate) {
+        if (is_file($candidate)) {
+            if (str_contains(str_replace('\\', '/', $candidate), '/public/uploads/')) {
+                return base_url('/public/uploads/' . $normalized);
+            }
+
+            return base_url('/uploads/' . $normalized);
+        }
+    }
+
+    return $fallback;
 }
 
 function route(string $name, array $params = []): string

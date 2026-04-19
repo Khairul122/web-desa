@@ -1,7 +1,7 @@
 <?php
 $brandName = trim((string) ($desa_nama ?? '')) ?: (trim((string) ($website_nama ?? '')) ?: 'Website');
 $brandDescription = trim((string) ($website_deskripsi ?? ''));
-$logoUrl = !empty($logoDesa ?? '') ? upload_url((string) $logoDesa) : '';
+$logoUrl = !empty($logoDesa ?? '') ? resolve_upload_url((string) $logoDesa) : '';
 $oldIdentifier = (string) old_input('identifier', '');
 $oldRemember = (string) old_input('remember', '') === '1';
 $alamatText = trim((string) ($alamatDesa ?? $desa_alamat ?? ''));

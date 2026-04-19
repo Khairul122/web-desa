@@ -18,7 +18,7 @@ $structureMenuLabel = trim((string) ($pengaturan['menu_structure_label'] ?? ''))
   <meta name="author" content="<?= htmlspecialchars((string) ($website_nama ?? '')) ?>">
 
   <?php
-  $logoUrl = !empty($logoDesa ?? '') ? upload_url((string) $logoDesa) : '';
+  $logoUrl = !empty($logoDesa ?? '') ? resolve_upload_url((string) $logoDesa) : '';
   $siteTitle = htmlspecialchars((string) ($og_title ?? ($title ?? ($website_nama ?? 'Website'))));
   $desaName = htmlspecialchars((string) ($desa_nama ?? ($website_nama ?? 'Website')));
   $metaDescription = htmlspecialchars((string) ($og_desc ?? ($website_deskripsi ?? '')));
