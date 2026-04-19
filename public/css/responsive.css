@@ -38,6 +38,8 @@
   .visi-misi-wrap     { grid-template-columns: 1fr; }
   .visi-panel         { padding: 2rem; }
   .misi-panel         { padding: 2rem; }
+  .visi-panel-ornament { flex-direction: column; align-items: flex-start; }
+  .visi-ornament-grid { justify-content: flex-start; }
 
   .news-featured      { grid-template-columns: 1fr; min-height: auto; }
   .news-featured-img  { aspect-ratio: 16/9; }
@@ -102,6 +104,9 @@
 
   /* Vision-Mission */
   .visi-misi-wrap { grid-template-columns: 1fr; }
+  .visi-panel-ornament,
+  .misi-panel-topline { gap: 0.5rem; }
+  .misi-footnote { font-size: 0.84rem; }
 
   /* News */
   .news-featured        { display: block; }
