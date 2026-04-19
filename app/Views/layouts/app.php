@@ -308,10 +308,15 @@ $structureMenuLabel = trim((string) ($pengaturan['menu_structure_label'] ?? ''))
 
 <!-- Image Lightbox -->
 <dialog id="imageLightbox" class="image-lightbox" aria-label="Pratinjau gambar">
-  <button type="button" class="image-lightbox-close" id="imageLightboxClose" aria-label="Tutup pratinjau">
-    <i class="bi bi-x-lg"></i>
-  </button>
-  <img id="imageLightboxImg" src="" alt="">
+  <div class="image-lightbox-shell">
+    <button type="button" class="image-lightbox-close" id="imageLightboxClose" aria-label="Tutup pratinjau">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <figure class="image-lightbox-figure">
+      <img id="imageLightboxImg" src="" alt="">
+      <figcaption id="imageLightboxCaption" class="image-lightbox-caption" hidden></figcaption>
+    </figure>
+  </div>
 </dialog>
 
 <?php endif; ?>

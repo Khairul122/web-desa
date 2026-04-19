@@ -240,11 +240,29 @@ function initMagneticButtons() {
 function initGalleryLightbox() {
   const dialog   = document.getElementById('imageLightbox');
   const img      = document.getElementById('imageLightboxImg');
+  const caption  = document.getElementById('imageLightboxCaption');
   const closeBtn = document.getElementById('imageLightboxClose');
   if (!dialog || !img) return;
 
-  const openImg = (src, alt) => { img.src = src; img.alt = alt || ''; dialog.showModal(); };
-  const closeIt = () => { dialog.close(); img.src = ''; };
+  const openImg = (src, alt) => {
+    img.src = src;
+    img.alt = alt || '';
+    if (caption) {
+      const text = (alt || '').trim();
+      caption.textContent = text;
+      caption.hidden = text === '';
+    }
+    if (!dialog.open) dialog.showModal();
+  };
+  const closeIt = () => {
+    if (dialog.open) dialog.close();
+    img.src = '';
+    img.alt = '';
+    if (caption) {
+      caption.textContent = '';
+      caption.hidden = true;
+    }
+  };
 
   document.addEventListener('click', e => {
     const item = e.target.closest('[data-lightbox-src]');
@@ -258,6 +276,7 @@ function initGalleryLightbox() {
   });
   closeBtn?.addEventListener('click', closeIt);
   dialog.addEventListener('click', e => { if (e.target === dialog) closeIt(); });
+  dialog.addEventListener('cancel', e => { e.preventDefault(); closeIt(); });
 }
 
 /* ── Back To Top ─────────────────────────── */
