@@ -31,6 +31,37 @@ $resolveMediaUrl = static function (string $path, string $folder = ''): string {
     return upload_url($path);
 };
 
+$resolveExistingMediaUrl = static function (string $path, string $folder = '') use ($resolveMediaUrl): string {
+    $path = trim($path);
+    if ($path === '') {
+        return '';
+    }
+
+    $normalizedPath = ltrim(str_replace('\\', '/', $path), '/');
+    $basename = basename($normalizedPath);
+    $root = dirname(__DIR__, 3);
+    $candidates = array_values(array_unique(array_filter([
+        $root . '/uploads/' . $normalizedPath,
+        $root . '/public/uploads/' . $normalizedPath,
+        $folder !== '' ? $root . '/uploads/' . trim($folder, '/') . '/' . $basename : '',
+        $folder !== '' ? $root . '/public/uploads/' . trim($folder, '/') . '/' . $basename : '',
+    ], static fn($value) => $value !== '')));
+
+    foreach ($candidates as $candidate) {
+        if (is_file($candidate)) {
+            if (str_contains(str_replace('\\', '/', $candidate), '/public/uploads/')) {
+                $relative = substr(str_replace('\\', '/', $candidate), strlen(str_replace('\\', '/', $root . '/public/')));
+                return base_url('/public/' . ltrim($relative, '/'));
+            }
+
+            $relative = substr(str_replace('\\', '/', $candidate), strlen(str_replace('\\', '/', $root . '/')));
+            return base_url('/' . ltrim($relative, '/'));
+        }
+    }
+
+    return '';
+};
+
 $heroImage = '';
 if (!empty($carouselItems[0]['gambar'])) {
     $heroImage = (string) $carouselItems[0]['gambar'];
@@ -40,17 +71,17 @@ if (!empty($carouselItems[0]['gambar'])) {
 
 $heroImageUrl = '';
 if (!empty($carouselItems[0]['gambar'])) {
-    $heroImageUrl = $resolveMediaUrl((string) $carouselItems[0]['gambar'], 'carousel');
+    $heroImageUrl = $resolveExistingMediaUrl((string) $carouselItems[0]['gambar'], 'carousel');
 }
 if ($heroImageUrl === '' && !empty($galeriItems[0]['gambar'])) {
-    $heroImageUrl = $resolveMediaUrl((string) $galeriItems[0]['gambar'], 'galeri');
+    $heroImageUrl = $resolveExistingMediaUrl((string) $galeriItems[0]['gambar'], 'galeri');
 }
 if ($heroImageUrl === '') {
-    $heroImageUrl = $resolveMediaUrl((string) ($logoDesa ?? ''));
+    $heroImageUrl = resolve_upload_url((string) ($logoDesa ?? ''));
 }
 
 $aboutImageUrl = !empty($galeriItems[0]['gambar'])
-    ? $resolveMediaUrl((string) $galeriItems[0]['gambar'], 'galeri')
+    ? $resolveExistingMediaUrl((string) $galeriItems[0]['gambar'], 'galeri')
     : $heroImageUrl;
 
 $missionItems = !empty($misiList) && is_array($misiList)
@@ -216,7 +247,7 @@ $heroSlides = [];
 if (!empty($carouselItems)) {
     foreach ($carouselItems as $slide) {
         $imagePath = (string) ($slide['gambar'] ?? '');
-        $imageUrl = $resolveMediaUrl($imagePath, 'carousel');
+        $imageUrl = $resolveExistingMediaUrl($imagePath, 'carousel');
         if ($imageUrl === '') {
             continue;
         }

@@ -1,7 +1,7 @@
 <section class="section about-section" id="tentang">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-lg-5" data-reveal="clip-left">
+      <div class="col-lg-5">
         <div class="about-image-wrap">
           <?php if (!empty($aboutImageUrl)): ?>
           <img src="<?= htmlspecialchars($aboutImageUrl) ?>" alt="<?= htmlspecialchars($brandName) ?>" class="about-image-main" loading="lazy" width="600" height="750">
