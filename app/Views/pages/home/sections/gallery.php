@@ -1,14 +1,12 @@
 <?php if (!empty($galeriItems)): ?>
 <section class="section gallery-section" id="galeri">
   <div class="container">
-    <div class="section-header" data-reveal="clip-right">
-      <div class="section-header-left">
-        <span class="section-label"><i class="bi bi-images"></i> Dokumentasi</span>
-        <h2 class="section-title mt-2">Galeri Gampong</h2>
-        <div class="formal-divider"></div>
-        <p class="section-subtitle">Koleksi foto kegiatan dan keindahan <?= htmlspecialchars($brandName) ?>.</p>
-      </div>
-      <a href="<?= base_url('/galeri') ?>" class="btn btn-light-outline btn-sm flex-shrink-0">
+    <div class="text-center mb-5" data-reveal="clip-right">
+      <span class="section-label"><i class="bi bi-images"></i> Dokumentasi</span>
+      <h2 class="section-title mt-2">Galeri Gampong</h2>
+      <div class="formal-divider formal-divider--center"></div>
+      <p class="section-subtitle mx-auto">Koleksi foto kegiatan dan keindahan <?= htmlspecialchars($brandName) ?>.</p>
+      <a href="<?= base_url('/galeri') ?>" class="btn btn-light-outline btn-sm mt-3">
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>

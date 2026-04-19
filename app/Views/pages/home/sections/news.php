@@ -9,14 +9,12 @@ $resolveNewsImg = static function($item) use ($resolveMediaUrl): string {
 ?>
 <section class="section news-section" id="berita">
   <div class="container">
-    <div class="section-header" data-reveal="clip">
-      <div class="section-header-left">
-        <span class="section-label"><i class="bi bi-newspaper"></i> Informasi</span>
-        <h2 class="section-title mt-2">Berita Gampong</h2>
-        <div class="formal-divider"></div>
-        <p class="section-subtitle">Ikuti kabar dan kegiatan terkini dari <?= htmlspecialchars($brandName) ?>.</p>
-      </div>
-      <a href="<?= base_url('/berita') ?>" class="btn btn-light-outline btn-sm flex-shrink-0">
+    <div class="text-center mb-5" data-reveal="clip">
+      <span class="section-label"><i class="bi bi-newspaper"></i> Informasi</span>
+      <h2 class="section-title mt-2">Berita Gampong</h2>
+      <div class="formal-divider formal-divider--center"></div>
+      <p class="section-subtitle mx-auto">Ikuti kabar dan kegiatan terkini dari <?= htmlspecialchars($brandName) ?>.</p>
+      <a href="<?= base_url('/berita') ?>" class="btn btn-light-outline btn-sm mt-3">
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>
