@@ -1,9 +1,30 @@
 <?php
+$normalizeStatIcon = static function (string $icon): string {
+    $icon = trim($icon);
+    if ($icon === '') {
+        return 'bi bi-bar-chart-fill';
+    }
+
+    if (str_contains($icon, ' ')) {
+        return $icon;
+    }
+
+    if (str_starts_with($icon, 'bi-')) {
+        return 'bi ' . $icon;
+    }
+
+    if (str_starts_with($icon, 'bi')) {
+        return preg_replace('/^bi(?!\s)/', 'bi ', $icon) ?: 'bi bi-bar-chart-fill';
+    }
+
+    return 'bi bi-bar-chart-fill';
+};
+
 $displayStats = [];
 if (!empty($statistikItems)) {
     foreach ($statistikItems as $s) {
         $displayStats[] = [
-            'icon'  => trim((string)($s['icon'] ?? 'bi bi-bar-chart-fill')),
+            'icon'  => $normalizeStatIcon((string)($s['icon'] ?? 'bi bi-bar-chart-fill')),
             'label' => trim((string)($s['nama_statistik'] ?? ($s['label'] ?? ''))),
             'value' => trim((string)($s['nilai_statistik'] ?? ($s['value'] ?? ''))),
             'unit'  => trim((string)($s['unit'] ?? '')),

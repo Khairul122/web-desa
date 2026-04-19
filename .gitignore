@@ -4,12 +4,4 @@ config/secrets.php
 storage/logs/*.log
 testsprite_tests/tmp/
 database/if0_41449608_desa.sql
-
-# Runtime uploads (keep folders, ignore generated files)
-uploads/**
-!uploads/.gitkeep
-!uploads/logo/.gitkeep
-!uploads/artikel/.gitkeep
-!uploads/carousel/.gitkeep
-!uploads/galeri/.gitkeep
-!uploads/editor/.gitkeep
+database/website_desa.sql
