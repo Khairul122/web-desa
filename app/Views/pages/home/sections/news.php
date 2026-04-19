@@ -20,10 +20,6 @@ $resolveNewsImg = static function($item) use ($resolveMediaUrl): string {
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>
-    <div class="section-accent-title" data-reveal="up" data-reveal-delay="80">
-      <span>Berita Gampong</span>
-    </div>
-
     <?php if ($featuredNews): ?>
     <?php $featImg = $resolveNewsImg($featuredNews); ?>
     <a href="<?= base_url('/berita/' . ($featuredNews['slug'] ?? '')) ?>" class="news-featured" data-reveal="flip">

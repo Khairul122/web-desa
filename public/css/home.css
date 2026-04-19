@@ -636,23 +636,6 @@
   font-size: 1rem;
   line-height: 1.75;
 }
-.section-accent-title {
-  margin: -0.2rem 0 1.45rem;
-}
-.section-accent-title span {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: var(--text-4xl);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: var(--color-dark);
-}
-.section-accent-title--center {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
 .visi-misi-wrap {
   display: grid;
   grid-template-columns: 1fr 1.3fr;

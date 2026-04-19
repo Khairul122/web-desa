@@ -7,9 +7,6 @@
       <div class="formal-divider formal-divider--center"></div>
       <p class="section-subtitle mx-auto"><?= htmlspecialchars($mapSectionDescription) ?></p>
     </div>
-    <div class="section-accent-title section-accent-title--center" data-reveal="up" data-reveal-delay="80">
-      <span>Lokasi Gampong</span>
-    </div>
     <div class="map-wrap" data-reveal="up">
       <iframe
         src="<?= htmlspecialchars($mapEmbedUrl) ?>"

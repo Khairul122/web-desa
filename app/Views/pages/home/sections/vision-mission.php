@@ -5,9 +5,7 @@
       <span class="section-label"><i class="bi bi-compass"></i> Arah Gampong</span>
       <h2 class="section-title mt-2">Visi &amp; Misi</h2>
       <div class="formal-divider formal-divider--center"></div>
-    </div>
-    <div class="visi-misi-intro" data-reveal="up" data-reveal-delay="80">
-      <p>Komitmen <?= htmlspecialchars($brandName) ?> dalam membangun pelayanan yang terarah, tertib, dan dekat dengan kebutuhan warga.</p>
+      <p class="section-subtitle mx-auto">Komitmen <?= htmlspecialchars($brandName) ?> dalam membangun pelayanan yang terarah, tertib, dan dekat dengan kebutuhan warga.</p>
     </div>
     <div class="visi-misi-wrap">
       <div class="visi-panel" data-reveal="left">
