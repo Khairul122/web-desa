@@ -96,4 +96,3 @@ jobs:
             **/config/secrets.development.php
             **/config/secrets.production.php
             **/config/secrets.example.php
-            **/uploads/**
