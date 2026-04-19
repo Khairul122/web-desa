@@ -1,9 +1,26 @@
 <?php
 $featuredNews = $beritaItems[0] ?? null;
 $restNews     = array_slice($beritaItems, 1, 3);
-$resolveNewsImg = static function ($item) use (&$resolveMediaUrl): string {
+$resolveNewsImg = static function ($item): string {
     $thumb = trim((string)($item['thumbnail'] ?? ''));
-    return $thumb !== '' ? $resolveMediaUrl($thumb, 'artikel') : '';
+    if ($thumb === '') {
+        return '';
+    }
+
+    if (preg_match('#^https?://#i', $thumb) === 1) {
+        return $thumb;
+    }
+
+    $normalizedThumb = ltrim(str_replace('\\', '/', $thumb), '/');
+    if (str_starts_with($normalizedThumb, 'uploads/')) {
+        return resolve_upload_url(substr($normalizedThumb, 8));
+    }
+
+    if (str_starts_with($normalizedThumb, 'artikel/')) {
+        return resolve_upload_url($normalizedThumb);
+    }
+
+    return resolve_upload_url('artikel/' . basename($normalizedThumb));
 };
 ?>
 <section class="section news-section" id="berita">

@@ -62,6 +62,28 @@ $resolveExistingMediaUrl = static function (string $path, string $folder = '') u
     return '';
 };
 
+$resolveCarouselUrl = static function (string $path) use ($resolveExistingMediaUrl): string {
+    $path = trim($path);
+    if ($path === '') {
+        return '';
+    }
+
+    if (preg_match('#^https?://#i', $path) === 1) {
+        return $path;
+    }
+
+    $normalizedPath = ltrim(str_replace('\\', '/', $path), '/');
+    if (str_starts_with($normalizedPath, 'uploads/')) {
+        return resolve_upload_url(substr($normalizedPath, 8));
+    }
+
+    if (str_starts_with($normalizedPath, 'carousel/')) {
+        return resolve_upload_url($normalizedPath);
+    }
+
+    return resolve_upload_url('carousel/' . basename($normalizedPath));
+};
+
 $heroImage = '';
 if (!empty($carouselItems[0]['gambar'])) {
     $heroImage = (string) $carouselItems[0]['gambar'];
@@ -71,7 +93,7 @@ if (!empty($carouselItems[0]['gambar'])) {
 
 $heroImageUrl = '';
 if (!empty($carouselItems[0]['gambar'])) {
-    $heroImageUrl = $resolveExistingMediaUrl((string) $carouselItems[0]['gambar'], 'carousel');
+    $heroImageUrl = $resolveCarouselUrl((string) $carouselItems[0]['gambar']);
 }
 if ($heroImageUrl === '' && !empty($galeriItems[0]['gambar'])) {
     $heroImageUrl = $resolveExistingMediaUrl((string) $galeriItems[0]['gambar'], 'galeri');
@@ -247,7 +269,7 @@ $heroSlides = [];
 if (!empty($carouselItems)) {
     foreach ($carouselItems as $slide) {
         $imagePath = (string) ($slide['gambar'] ?? '');
-        $imageUrl = $resolveExistingMediaUrl($imagePath, 'carousel');
+        $imageUrl = $resolveCarouselUrl($imagePath);
         if ($imageUrl === '') {
             continue;
         }
