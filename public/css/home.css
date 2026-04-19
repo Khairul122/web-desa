@@ -636,6 +636,21 @@
   font-size: 1rem;
   line-height: 1.75;
 }
+.section-intro-text {
+  max-width: 760px;
+  margin: -0.4rem 0 1.55rem;
+}
+.section-intro-text p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+.section-intro-text--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 .visi-misi-wrap {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
