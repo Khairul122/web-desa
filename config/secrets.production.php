@@ -6,7 +6,7 @@ return [
     'LOG_VIEWER_TOKEN' => '',
 
     'DB_HOST' => 'sqlXXX.infinityfree.com',
-    'DB_NAME' => 'if0_xxxxxxxx_database',
-    'DB_USER' => 'if0_xxxxxxxx',
-    'DB_PASS' => 'ganti-dengan-password-production',
+    'DB_NAME' => 'if0_41449608_desa',
+    'DB_USER' => 'if0_41449608',
+    'DB_PASS' => 't7Fm8ulsBIxUVM',
 ];
