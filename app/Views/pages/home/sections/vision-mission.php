@@ -6,20 +6,8 @@
       <h2 class="section-title mt-2">Visi &amp; Misi</h2>
       <div class="formal-divider formal-divider--center"></div>
     </div>
-    <div class="visi-misi-scene" aria-hidden="true">
-      <div class="visi-misi-floating-note visi-misi-floating-note--left">
-        <span class="floating-note-label">Arah Utama</span>
-        <strong>Pelayanan, kebersamaan, dan pembangunan berkelanjutan.</strong>
-      </div>
-      <div class="visi-misi-floating-badges">
-        <span>Pelayanan</span>
-        <span>Kebersamaan</span>
-        <span>Kemandirian</span>
-      </div>
-      <div class="visi-misi-floating-note visi-misi-floating-note--right">
-        <span class="floating-note-label">Fokus Misi</span>
-        <strong>Program yang dekat dengan kebutuhan warga dan tertata.</strong>
-      </div>
+    <div class="visi-misi-intro" data-reveal="up" data-reveal-delay="80">
+      <p>Komitmen <?= htmlspecialchars($brandName) ?> dalam membangun pelayanan yang terarah, tertib, dan dekat dengan kebutuhan warga.</p>
     </div>
     <div class="visi-misi-wrap">
       <div class="visi-panel" data-reveal="left">
