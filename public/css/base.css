@@ -731,12 +731,19 @@ p { color: var(--color-body); }
 
 /* ── Image Lightbox ──────────────────────── */
 .image-lightbox {
+  position: fixed;
+  inset: 0;
   width: min(94vw, 1100px);
   max-width: 1100px;
   border: 0;
   padding: 0;
+  margin: auto;
   background: transparent;
   overflow: visible;
+}
+.image-lightbox[open] {
+  display: grid;
+  place-items: center;
 }
 .image-lightbox::backdrop { background: rgba(5, 10, 20, 0.90); backdrop-filter: blur(4px); }
 .image-lightbox-shell {
@@ -794,6 +801,7 @@ p { color: var(--color-body); }
 @media (max-width: 767.98px) {
   .image-lightbox {
     width: min(96vw, 96vw);
+    max-width: 96vw;
   }
   .image-lightbox img {
     max-height: 68vh;
