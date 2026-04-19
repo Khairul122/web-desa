@@ -1,4 +1,3 @@
-<?php if (!empty($beritaItems)): ?>
 <?php
 $featuredNews = $beritaItems[0] ?? null;
 $restNews     = array_slice($beritaItems, 1, 3);
@@ -18,6 +17,13 @@ $resolveNewsImg = static function($item) use ($resolveMediaUrl): string {
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>
+    <?php if (!$featuredNews && empty($restNews)): ?>
+    <div class="empty-state" data-reveal="fade">
+      <i class="bi bi-newspaper"></i>
+      <h4>Berita belum tersedia</h4>
+      <p>Informasi terbaru dari <?= htmlspecialchars($brandName) ?> akan tampil di sini setelah dipublikasikan.</p>
+    </div>
+    <?php endif; ?>
     <?php if ($featuredNews): ?>
     <?php $featImg = $resolveNewsImg($featuredNews); ?>
     <a href="<?= base_url('/berita/' . ($featuredNews['slug'] ?? '')) ?>" class="news-featured" data-reveal="flip">
@@ -79,4 +85,3 @@ $resolveNewsImg = static function($item) use ($resolveMediaUrl): string {
 
   </div>
 </section>
-<?php endif; ?>

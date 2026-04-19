@@ -250,8 +250,6 @@ if (empty($heroSlides)) {
 <?php require APP_PATH . '/Views/pages/home/sections/vision-mission.php'; ?>
 <?php require APP_PATH . '/Views/pages/home/sections/news.php'; ?>
 <?php require APP_PATH . '/Views/pages/home/sections/gallery.php'; ?>
-<?php if ($hasMapSection): ?>
-    <?php require APP_PATH . '/Views/pages/home/sections/map-location.php'; ?>
-<?php endif; ?>
+<?php require APP_PATH . '/Views/pages/home/sections/map-location.php'; ?>
 <?php require APP_PATH . '/Views/pages/home/sections/cta.php'; ?>
 </div>

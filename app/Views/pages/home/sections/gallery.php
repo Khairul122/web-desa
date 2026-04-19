@@ -1,4 +1,3 @@
-<?php if (!empty($galeriItems)): ?>
 <section class="section gallery-section" id="galeri">
   <div class="container">
     <div class="text-center mb-5" data-reveal="clip-right">
@@ -10,6 +9,13 @@
         Lihat Semua <i class="bi bi-arrow-right"></i>
       </a>
     </div>
+    <?php if (empty($galeriItems)): ?>
+    <div class="empty-state" data-reveal="fade">
+      <i class="bi bi-images"></i>
+      <h4>Galeri belum tersedia</h4>
+      <p>Dokumentasi kegiatan dan suasana <?= htmlspecialchars($brandName) ?> akan tampil di sini setelah ditambahkan.</p>
+    </div>
+    <?php endif; ?>
     <div class="gallery-masonry" data-stagger>
       <?php foreach (array_slice($galeriItems, 0, 8) as $gal): ?>
       <?php
@@ -33,4 +39,3 @@
     </div>
   </div>
 </section>
-<?php endif; ?>

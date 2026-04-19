@@ -1,4 +1,3 @@
-<?php if (!empty($visiText) || !empty($missionItems)): ?>
 <section class="section visi-misi-section" id="visi-misi">
   <div class="container">
     <div class="text-center mb-5" data-reveal="clip">
@@ -36,4 +35,3 @@
     </div>
   </div>
 </section>
-<?php endif; ?>
