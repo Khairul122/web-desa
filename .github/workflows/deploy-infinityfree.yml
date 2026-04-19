@@ -14,6 +14,44 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate required secrets
+        shell: bash
+        env:
+          INFINITYFREE_FTP_SERVER: ${{ secrets.INFINITYFREE_FTP_SERVER }}
+          INFINITYFREE_FTP_USERNAME: ${{ secrets.INFINITYFREE_FTP_USERNAME }}
+          INFINITYFREE_FTP_PASSWORD: ${{ secrets.INFINITYFREE_FTP_PASSWORD }}
+          INFINITYFREE_FTP_REMOTE_DIR: ${{ secrets.INFINITYFREE_FTP_REMOTE_DIR }}
+          APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
+          APP_DB_HOST: ${{ secrets.APP_DB_HOST }}
+          APP_DB_NAME: ${{ secrets.APP_DB_NAME }}
+          APP_DB_USER: ${{ secrets.APP_DB_USER }}
+          APP_DB_PASS: ${{ secrets.APP_DB_PASS }}
+        run: |
+          required_vars=(
+            INFINITYFREE_FTP_SERVER
+            INFINITYFREE_FTP_USERNAME
+            INFINITYFREE_FTP_PASSWORD
+            INFINITYFREE_FTP_REMOTE_DIR
+            APP_BASE_URL
+            APP_DB_HOST
+            APP_DB_NAME
+            APP_DB_USER
+            APP_DB_PASS
+          )
+
+          missing=()
+          for var_name in "${required_vars[@]}"; do
+            if [ -z "${!var_name}" ]; then
+              missing+=("$var_name")
+            fi
+          done
+
+          if [ ${#missing[@]} -gt 0 ]; then
+            printf 'Missing required GitHub Secrets:\n' >&2
+            printf -- '- %s\n' "${missing[@]}" >&2
+            exit 1
+          fi
+
       - name: Generate production secrets file
         shell: bash
         run: |
@@ -41,6 +79,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.INFINITYFREE_FTP_SERVER }}
+          port: 21
           username: ${{ secrets.INFINITYFREE_FTP_USERNAME }}
           password: ${{ secrets.INFINITYFREE_FTP_PASSWORD }}
           protocol: ftp
