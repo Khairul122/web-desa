@@ -2,8 +2,8 @@
     RewriteEngine On
     RewriteBase /
 
-    # Allow direct access to Google verification file
-    RewriteCond %{REQUEST_URI} ^/google[a-z0-9]+\.html$ [NC]
+    # Allow direct access to Google verification and robots.txt
+    RewriteCond %{REQUEST_URI} ^/(google[a-z0-9]+\.html|robots\.txt)$ [NC]
     RewriteRule ^ - [L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
