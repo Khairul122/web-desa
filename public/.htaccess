@@ -4,6 +4,10 @@ DirectoryIndex index.php
     RewriteEngine On
     RewriteBase /
 
+    # Allow direct access to Google verification file
+    RewriteCond %{REQUEST_URI} ^/google[a-z0-9]+\.html$ [NC]
+    RewriteRule ^ - [L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php/$1 [L]
