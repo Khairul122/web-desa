@@ -85,12 +85,14 @@ abstract class Controller extends BaseController
 
         $desaNama = trim((string) ($profil['nama_desa'] ?? '')) ?: 'Desa';
         $websiteNama = trim((string) ($pengaturan['website_nama'] ?? '')) ?: 'Website Desa';
+        $websiteKeywords = trim((string) ($pengaturan['website_keywords'] ?? '')) ?: 'gampong munye pirak, munye pirak, meunye pirak, aceh utara, gampong digital, profil desa';
 
         return array_merge([
             'profil' => $profil,
             'pengaturan' => $pengaturan,
             'desa_nama' => $desaNama,
             'website_nama' => $websiteNama,
+            'website_keywords' => $websiteKeywords,
             'website_deskripsi' => (string) ($pengaturan['website_deskripsi'] ?? ''),
             'desa_alamat' => (string) ($profil['alamat'] ?? ''),
             'desa_telepon' => (string) ($profil['telepon'] ?? ''),

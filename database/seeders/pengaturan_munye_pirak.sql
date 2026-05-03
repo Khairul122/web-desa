@@ -4,7 +4,7 @@
 INSERT INTO `pengaturan` (`nama_setting`, `nilai_setting`, `keterangan`) VALUES
 ('website_nama', 'Website Resmi Gampong Munye Pirak', 'Nama website'),
 ('website_deskripsi', 'Gampong Munye Pirak adalah sebuah gampong di Kabupaten Aceh Utara, Provinsi Aceh.', 'Deskripsi website'),
-('website_keywords', 'gampong munye pirak, meunye pirak, aceh utara, provinsi aceh, pemerintah gampong', 'Keywords website'),
+('website_keywords', 'gampong munye pirak, munye pirak, meunye pirak, desa munye pirak, gampong digital aceh utara, profil gampong munye pirak, matangkuli aceh utara, profil desa aceh, sistem informasi gampong, berita gampong munye pirak', 'Keywords website'),
 ('social_facebook', '', 'Link Facebook'),
 ('social_instagram', '', 'Link Instagram'),
 ('social_youtube', '', 'Link YouTube'),
