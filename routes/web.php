@@ -13,6 +13,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AssistantController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BeritaController as AdminBeritaController;
 use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\Admin\EditorImageController as AdminEditorImageControll
 $router = new Router();
 
 $router->get('/', [HomeController::class, 'index']);
+$router->get('/sitemap.xml', [SitemapController::class, 'index']);
 
 $router->group(['middleware' => []], function (Router $router) {
     $router->get('/profil', [ProfilController::class, 'index']);
