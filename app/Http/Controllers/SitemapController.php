@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Database;
 use App\Models\Berita;
 use App\Models\Galeri;
-use App\Models\ProfilDesa;
 
 class SitemapController extends Controller
 {
     public function index()
     {
-        $berita = Berita::all();
-        $galeri = Galeri::all();
-        $profil = ProfilDesa::all();
+        $db = Database::getInstance();
+        
+        // Ambil data berita yang terbit
+        $berita = $db->table('berita')->where('status', 'publish')->get();
+        
+        // Ambil data galeri
+        $galeri = $db->table('galeri')->get();
 
         if (ob_get_length()) ob_clean();
         header('Content-Type: application/xml; charset=utf-8');
@@ -23,7 +27,7 @@ class SitemapController extends Controller
         // Homepage
         $xml .= $this->getUrlXml(base_url(), '1.0', 'daily');
         
-        // Static Pages
+        // Halaman Statis
         $xml .= $this->getUrlXml(base_url('/profil'), '0.8', 'monthly');
         $xml .= $this->getUrlXml(base_url('/profil/visi-misi'), '0.8', 'monthly');
         $xml .= $this->getUrlXml(base_url('/profil/struktur-organisasi'), '0.8', 'monthly');
@@ -31,19 +35,20 @@ class SitemapController extends Controller
         $xml .= $this->getUrlXml(base_url('/galeri'), '0.8', 'weekly');
         $xml .= $this->getUrlXml(base_url('/kontak'), '0.7', 'monthly');
         
-        // Dynamic Profil
-        foreach ($profil as $p) {
-            $xml .= $this->getUrlXml(base_url('/profil/' . $p->slug), '0.8', 'monthly');
-        }
-        
-        // Dynamic Berita
+        // Berita Dinamis
         foreach ($berita as $b) {
-            $xml .= $this->getUrlXml(base_url('/berita/' . $b->slug), '0.8', 'monthly');
+            $slug = $b['slug'] ?? '';
+            if ($slug !== '') {
+                $xml .= $this->getUrlXml(base_url('/berita/' . $slug), '0.8', 'monthly');
+            }
         }
         
-        // Dynamic Galeri
+        // Galeri Dinamis
         foreach ($galeri as $g) {
-            $xml .= $this->getUrlXml(base_url('/galeri/' . $g->slug), '0.7', 'monthly');
+            $slug = $g['slug'] ?? '';
+            if ($slug !== '') {
+                $xml .= $this->getUrlXml(base_url('/galeri/' . $slug), '0.7', 'monthly');
+            }
         }
         
         $xml .= '</urlset>';
