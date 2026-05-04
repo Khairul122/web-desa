@@ -105,7 +105,7 @@ class HomeController extends Controller
         }
 
         $data = [
-            'title' => 'Beranda - ' . ($desaNama ?: 'Website Desa'),
+            'title' => 'Website Resmi Gampong Munye Pirak - Gampong Digital Aceh Utara',
             'page' => 'home',
             'profil' => $profil,
             'statistik' => $statistik,

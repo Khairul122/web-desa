@@ -83,7 +83,8 @@ $structureMenuLabel = trim((string) ($pengaturan['menu_structure_label'] ?? ''))
   <?php endif; ?>
 
   <?php if ($logoUrl !== ''): ?>
-  <link rel="shortcut icon" href="<?= htmlspecialchars($logoUrl) ?>" type="image/x-icon">
+  <link rel="icon" href="<?= htmlspecialchars($logoUrl) ?>" type="image/x-icon">
+  <link rel="apple-touch-icon" href="<?= htmlspecialchars($logoUrl) ?>">
   <?php endif; ?>
 
   <!-- Fonts -->
