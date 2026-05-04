@@ -78,12 +78,6 @@
     <div class="bg-motif"></div>
     
     <div class="error-container text-center">
-        <div class="lottie-container">
-            <!-- Lottie Animation - Interactive 404 Robot/Nature Theme -->
-            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-            <dotlottie-player src="https://lottie.host/8e17855f-84d7-4001-9c60-a29d661e7cc4/Uo0tC65f2z.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></dotlottie-player>
-        </div>
-
         <h1 class="error-code">404</h1>
         <h2 class="error-title">Halaman Tidak Ditemukan</h2>
         <p class="error-desc">
